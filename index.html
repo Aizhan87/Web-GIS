@@ -16,10 +16,18 @@
     <link rel="stylesheet" href="dist/style.css">
 
     <title>Leaflet Geoproject</title>
-
+    <script src="https://www.webglearth.com/v2/api.js"></script>
+    <script>
+        function initialize() {
+            var earth = new WE.map('earth_div');
+            WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(earth);
+        }
+    </script>
 </head>
 
-<body>
+<body onload="initialize()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Basic Web-GIS</a>
@@ -40,6 +48,8 @@
             </div>
         </div>
     </nav>
+    <div id="earth_div"></div>
+
     <div id="map">
         <div class="leaflet-control map-coordinate">
             <div class="coordinate"></div>
